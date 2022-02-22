@@ -1,5 +1,7 @@
 //https://www.hackerrank.com/challenges/happy-ladybugs/problem?isFullScreen=true
 
+//https://www.hackerrank.com/challenges/happy-ladybugs/problem?isFullScreen=true
+
 function happyLadybugs(b) {
     // Write your code here
     let dict = {}
@@ -10,16 +12,13 @@ function happyLadybugs(b) {
             dict[b[i]] = 1
         }
     }
+    
     let happy = true
-    let response = Object.keys(dict).map((key) => {
+    Object.keys(dict).map((key) => {
         if(key != "_" && dict[key] == 1){
-            return 'NO'
+            happy = false
         }
     })
-    console.log(response)
-    if(response.includes('NO')){
-        happy = false
-    }
     
     if(dict['_'] > 0 && happy == true){
         happy = true
