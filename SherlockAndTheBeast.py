@@ -3,7 +3,6 @@
 def decentNumber(n):
     # Write your code here
     a, b = divmod(n,3)
-    print("{a}:{b}").format(a=a, b=b)
     while b%5:
         b+=3
         a-=1
