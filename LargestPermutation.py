@@ -2,19 +2,21 @@
 
 def largestPermutation(k, arr):
     # Write your code here
-    if k >= len(arr) - 1:
-        return sorted(arr, reverse = True)
-    
-    else:
-        sorted_array = sorted(arr)
-        i, swaps = 0, 0
+        i, swaps = 0, 0        
+        index = len(arr)
+        dict = {}
         
-        while swaps < k:
-            x = sorted_array.pop()
+        for counter in range(len(arr)):
+            dict[arr[counter]] = counter  
             
-            if arr[i] != x:
-                arr[arr.index(x)] = arr[i]
+        while swaps < k and i<index:
+            x = index - i
+            y = arr[i]
+            
+            if y != x:
+                arr[dict[x]] = y
                 arr[i] = x
+                dict[x],dict[y] = dict[y],dict[x]
                 swaps += 1
             
             i += 1
