@@ -2,27 +2,19 @@
 
 def gridSearch(G, P):
     # Write your code here
-    columns = [list(i) for i in zip(*G)]
-    pattern_columns = [list(i) for i in zip(*P)]
-    count = len(pattern_columns)
-    match = 0
+    def check(i,j):
+        for x in range(r):
+            if P[x] != G[i+x][j:j+c]:
+                return False
+        return True
+    
     result = "NO"
-    array = []
-    
-    for j in range(len(columns)):
-        item = "".join(columns[j])
-        print(item)
-        for i in range(len(pattern_columns)):
-            value = "".join(pattern_columns[i])
-            print(value)
-            if value in item:
-                array.append(item.index(value))
-                match += 1
-                del pattern_columns[i]
-                break
-        if match == count:
-            result = "YES"
-            break
-    
-    print(array)
+        
+    for i in range(R):
+        for j in range(C):
+            print(G[i][j])
+            if G[i][j] == P[0][0]:
+                if check(i,j):
+                    return "YES"
+                
     return result
