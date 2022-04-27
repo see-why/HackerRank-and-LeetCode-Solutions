@@ -1,14 +1,15 @@
 # https://www.hackerrank.com/challenges/two-pluses/problem?isFullScreen=true
 
+
 def twoPluses(grid):
     # Write your code here
     tem = []
-    tem.append(["O"] * (n + 2))
+    tem.append(["O"] * (m + 2))
     for x in grid:
         tem.append(["O"] + list(x) + ["O"])
-    tem.append(["O"] * (n + 2))
+    tem.append(["O"] * (m + 2))
     grid = tem
-    # print(grid)
+    print(grid)
     ans=0
     for e in range(1, n + 1):
         for v in range(1, m + 1):
@@ -20,8 +21,7 @@ def twoPluses(grid):
                     for V in range(1, m + 1):
                         R = 0
                         # check adjacent 4 cells of [e][v] when r >0
-                        while grid[E + R][V] == "G" and grid[E - R][V] == "G" and grid[E][V + R] == "G" and grid[E][
-                            V - R] == "G":
+                        while grid[E + R][V] == "G" and grid[E - R][V] == "G" and grid[E][V + R] == "G" and grid[E][V - R] == "G":
                             ans=max(ans,(4*r +1)*(4*R +1))
                             R+=1
                 r+=1
@@ -32,3 +32,4 @@ def twoPluses(grid):
                 r+=1
 
     return ans
+
