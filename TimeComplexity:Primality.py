@@ -3,7 +3,7 @@
 def primality(n):
     # Write your code here
     if(n>1):
-        for i in range(2,int(sqrt(n))):
+        for i in range(2,int(sqrt(n)+1)):
             if(n%i==0):
                 return ("Not prime")
             
