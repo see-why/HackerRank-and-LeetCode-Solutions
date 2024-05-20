@@ -16,7 +16,6 @@ def dijkstra (graph, start)
 
   until nodes.empty?
     min_node = nodes.min_by { |node| visited[node] ? Float::INFINITY : distances[node] }
-    puts "min_node: #{min_node}"
     break if distances[min_node] == Float::INFINITY
 
     graph[min_node].each do |neighbour, distance|
